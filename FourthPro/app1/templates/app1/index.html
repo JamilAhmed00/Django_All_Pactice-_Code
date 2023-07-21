@@ -1,0 +1,50 @@
+
+
+
+
+{% extends 'base.html' %}
+
+{% load first_tag %}
+
+{% block title%} Contact Page {% endblock %}
+
+
+{% block abc %}
+
+{% load static %}
+<html>
+<head>
+    
+    <link rel="stylesheet" href = "{% static '/app1/css/style.css' %}">
+
+</head>
+
+<body>
+    <h1>Welcome to the app1</h1>
+    <h1>Author name: {{author}}</h1>
+    <h1>{{ author|change_name:'change' }}</h1>
+
+    <img src = "{% static "/app1/images/23.jpg" %}" alt= "Natural Images" >
+    
+     {% show_courses %}
+
+    <table border="1" width = 500>
+        <tr>
+            <th>ID</th>
+            <th>Course</th>
+            <th>Teacher</th>
+        </tr>
+    
+    <tr>
+    {% for i in courses %}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.Course}}</td>
+      <td>{{i.Teacher}}</td>
+    </tr>
+    {% endfor %}
+    </tr>
+
+    </table>   
+
+{% endblock %}
